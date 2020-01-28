@@ -1,76 +1,109 @@
 <html>
 
-  <head>
-<script> 
-function Clean() {
-  document.getElementById("inf1").innerHTML="";
-  document.getElementById("inf2").innerHTML="";
-  document.getElementById("inf3").innerHTML="";
-  document.getElementById("inf4").innerHTML="";
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+  <title>Стили</title>
+  <style>
+table {
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+font-size: 14px;
+border-collapse: collapse;
+text-align: center;
+}
+th{
+background: #AFCDE7;
+color: white;
+padding: 10px 20px;
+}
+th, td {
+border-style: solid;
+border-width: 0 1px 1px 0;
+border-color: white;
+}
+td {
+background: #D8E6F3;
 }
 
+  </style>
+  <script>
+  function Clean() {
 
+      document.getElementById("myTable").innerHTML="";
 
-function er() {
-  var i=20
-  while (i<36) {
-    document.getElementById("inf1").innerHTML=document.getElementById("inf1").innerHTML+i+"<br>"
-    i++;
+    }
+    var c = 0
+    var temp = ""
+    var temp2 = ""
+    flag =0
   
-  }
-}
 
-function er1() {
-  var i=10
-  var b = Number(document.getElementById("varb_in").value);
-  while (i<=b) {
-   document.getElementById("inf2").innerHTML=document.getElementById("inf2").innerHTML+i*i+"<br>"
-    i++;
-  }
-}
+    function CreateRow() {
+      var y = document.createElement("TR");
+      y.setAttribute("id", temp);
+      document.getElementById("myTable").appendChild(y);
+
+    }
+    function CreateRow2() {
+      var y = document.createElement("TR");
+      y.setAttribute("id", temp2);
+      document.getElementById("myTable").appendChild(y);
+
+    }
+    
+
+    function CreateTable() {
+      var x = document.createElement("TABLE");
+      x.setAttribute("id", "myTable");
+      document.body.appendChild(x);
+    }
 
 
-function er2() {
-  var a = Number(document.getElementById("vara_in").value);
-  while (a<=50) {
-   document.getElementById("inf3").innerHTML=document.getElementById("inf3").innerHTML+a*a*a+"<br>"
-    a++;
-  }
-}
-function er3() {
-  var a = Number(document.getElementById("vara_in").value);
-  var b = Number(document.getElementById("varb_in").value);
-  while (a<=b) {
-   document.getElementById("inf4").innerHTML=document.getElementById("inf4").innerHTML+a+" ";
-    a++;
-  }
-}
-</script>
-  </head>
+    function er() {
+      temp = "Tr" + c
+      temp2 = "Tr2_" + c
+      c++
+      if (flag ==0){CreateTable()}
+  
+  CreateRow()
+  flag=1
+      var b = Number(document.getElementById("in1").value);
+      for (var i = 0; i <= b; i++) {
+        var z1 = document.createElement("TH");
+        var t = document.createTextNode(i);
+        z1.appendChild(t);
+        document.getElementById(temp).appendChild(z1);
+        }
+       
+  CreateRow2()
+       var b = Number(document.getElementById("in1").value);
+        for (var i = 0; i <= b; i++) {
+        var z2 = document.createElement("TD");
+        var l = document.createTextNode(i*i);
+        z2.appendChild(l);
+        document.getElementById(temp2).appendChild(z2);
+      
+      }
+        
+        
+      
+
+    }
+  </script>
+</head>
 
 <body>
-  <button onclick="er()">5.3а</button>
-  <button onclick="er1()">5.3б</button>
-   <button onclick="er2()">5.3в</button>
-   <button onclick="er3()">5.3г</button>
-    <button onclick="Clean()">Сотри</button>
-   
-  
-    <br>
-    
-    a=<input type="text" value="16" id="vara_in"><br>
-    b=<input type="text" value="20" id="varb_in">
-    <br> 
-    __________________
+  <button onclick="er()">Нажми на меня</button>
+    <button onclick="Clean()">Стереть таблицу</button>
+  <br>
+  <br> А)
+  <input type="text" value="5" id="in1">
+  <br>
+  <br>
   <div id="inf1"></div>
-  ________________
-  <div id="inf2"></div>
-  ________________
-  <div id="inf3"></div>
-    ________________
-  <div id="inf4"></div>
-  ________________
+
+
 </body>
+
 </html>
 
 
